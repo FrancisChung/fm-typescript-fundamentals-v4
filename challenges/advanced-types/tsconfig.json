@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "commonjs",
+    "outDir": "lib",
+    "lib": ["dom"],
+    "strict": true,
+    "strictBindCallApply": true,
+    "strictFunctionTypes": true,
+    "strictNullChecks": true,
+    "declaration": true,
+    "sourceMap": true
+  },
+  "include": ["src"]
+}
