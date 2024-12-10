@@ -128,3 +128,11 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+**/node_modules
+**/out
+**/lib
+.vscode
+lerna-debug.log
+**/tempCodeRunnerFile.ts
+.idea/
