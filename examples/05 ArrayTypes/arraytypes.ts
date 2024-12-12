@@ -21,3 +21,14 @@ let myCar3: [number, string, string] = [
 // myCar3 = ["Honda", 2017, "Accord"]
 // myCar3 = [2017, "Honda","Accord","Sedan"]
 
+const numPair : readonly [number, number] = [4,5]
+// const numTriple :  [number, number, number] = [4,5, 6]
+const numTriple :  [number, number, number] = [7]
+
+numPair.push(6)
+
+const numPair2 : readonly [number, number] = [4,5]
+numPair[1] = 77
+
+
+// Tuples with readonly keyword
