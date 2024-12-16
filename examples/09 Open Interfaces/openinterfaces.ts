@@ -19,3 +19,15 @@ function feed(animal : AnimalLike) : void    {
 interface AnimalLike {
     isAlive(): boolean
 }
+
+window.document
+
+window.exampleProperty = 42
+
+declare global {
+    interface Window {
+        exampleProperty: number
+    }
+}
+
+export {}
