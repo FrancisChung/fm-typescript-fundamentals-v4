@@ -9,6 +9,7 @@ function printAmount(amt : IAmount) {
 
 // Interfaces to use for Inheritance
 
+// Extends Examples
 interface Animal {
     isAlive(): boolean
 }
@@ -24,4 +25,31 @@ interface Hamster extends Mammal {
 function careForHamster(h: Hamster) {
     h.getFurOrHairColour()
     h.squeak()
+}
+
+// Implements Examples
+interface AnimalLike {
+    eat(food: string) : void
+}
+
+class LivingOrganism {
+    isAlive() {
+        return true
+    }
+}
+
+interface CanBark {
+    bark(): string
+}
+
+class Dog
+    extends LivingOrganism
+    implements Animal, AnimalLike, CanBark {
+    eat(food: string) {
+        return `Eating ${food}`
+    }
+
+    bark() {
+        return "woof"
+    }
 }
