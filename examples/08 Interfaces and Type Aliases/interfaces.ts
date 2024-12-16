@@ -42,9 +42,11 @@ interface CanBark {
     bark(): string
 }
 
+interface DogLike extends Animal, AnimalLike, CanBark {}
+
 class Dog
     extends LivingOrganism
-    implements Animal, AnimalLike, CanBark {
+    implements DogLike {
     eat(food: string) {
         return `Eating ${food}`
     }
