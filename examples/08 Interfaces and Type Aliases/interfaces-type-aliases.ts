@@ -32,3 +32,10 @@ export function maybeGetUserInfo():
         return fail
     }
 }
+
+type SpecialDate = Date & {getDescription(): string}
+
+const newYearsEve: SpecialDate = Object.assign(
+    new Date(),
+    {getDescription: () => "Last Day of the year"}
+)
