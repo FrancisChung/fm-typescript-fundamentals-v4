@@ -1,6 +1,10 @@
-type JSONObject = any
-type JSONArray = any
-type JSONValue = any
+type JSONPrimitive = string | number | boolean | null
+
+type JSONObject = { [key: string] : JSONValue }
+type JSONArray = JSONValue[]
+type JSONValue = JSONPrimitive | JSONObject | JSONObject | JSONObject | JSONArray
+
+
 
 ////// DO NOT EDIT ANY CODE BELOW THIS LINE //////
 function isJSON(arg: JSONValue) {}
@@ -15,17 +19,17 @@ isJSON(null)
 isJSON({ a: { b: [2, 3, "foo"] } })
 
 // NEGATIVE test cases (must fail)
-@ts-expect-error
+//@ts-expect-error
 //Unused '@ts-expect-error' directive.
 isJSON(() => "")
-@ts-expect-error
+//@ts-expect-error
 //Unused '@ts-expect-error' directive.
 isJSON(class {})
-@ts-expect-error
+//@ts-expect-error
 //Unused '@ts-expect-error' directive.
 isJSON(undefined)
-@ts-expect-error
+//@ts-expect-error
 isJSON(BigInt(143))
-@ts-expect-error
+//@ts-expect-error
 //Unused '@ts-expect-error' directive.
 isJSON(isJSON)
