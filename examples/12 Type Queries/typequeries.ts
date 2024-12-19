@@ -38,6 +38,6 @@ interface Car {
 }
 
 let carColor: Car["color"]
-let carSomething: Car["Not-in-the-car"]
+//let carSomething: Car["Not-in-the-car"]
 let carColorRedComponent: Car["color"]["red"]
 let carProperty: Car["color" | "year"]
