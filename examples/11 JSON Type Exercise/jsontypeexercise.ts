@@ -15,17 +15,17 @@ isJSON(null)
 isJSON({ a: { b: [2, 3, "foo"] } })
 
 // NEGATIVE test cases (must fail)
-// @ts-expect-error
-Unused '@ts-expect-error' directive.
+@ts-expect-error
+//Unused '@ts-expect-error' directive.
 isJSON(() => "")
-// @ts-expect-error
-Unused '@ts-expect-error' directive.
+@ts-expect-error
+//Unused '@ts-expect-error' directive.
 isJSON(class {})
-// @ts-expect-error
-Unused '@ts-expect-error' directive.
+@ts-expect-error
+//Unused '@ts-expect-error' directive.
 isJSON(undefined)
-// @ts-expect-error
+@ts-expect-error
 isJSON(BigInt(143))
-// @ts-expect-error
-Unused '@ts-expect-error' directive.
+@ts-expect-error
+//Unused '@ts-expect-error' directive.
 isJSON(isJSON)
