@@ -5,7 +5,7 @@ export class Magazine {
 }
 
 declare module '../lib/registry' {
-    export interface Magazine {
+    export interface DataTypeRegistry {
         magazine: Magazine
     }
 }
