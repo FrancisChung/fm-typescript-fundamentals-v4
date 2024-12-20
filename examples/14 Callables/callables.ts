@@ -6,6 +6,6 @@ interface TwoNumberCalculation {
 
 type TwoNumberCalc = (x: number, y:number) => number
 
-const add: TwoNumberCalculation = (a, b) => a + b
-const subtract: TwoNumberCaclc = (x, y) => x - y
-s
+const add: TwoNumberCalculation = (a, b) => a+b
+const subtract: TwoNumberCaclc = (x, y) => x-y
+
