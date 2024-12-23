@@ -22,3 +22,16 @@ function invokeInFiveSeconds(callback:() => void) {
 const values: number[] = []
 // invokeInFourSeconds(()=> values.push(4)) // Error : number is not assignable to type undefined
 invokeInFiveSeconds(()=> values.push(4))
+
+function foo(): void {
+    return
+}
+
+function foo2(): void {
+    return undefined
+}
+
+// foo3 error : null is not assignable to void
+// function foo3(): void {
+//     return null
+// }
