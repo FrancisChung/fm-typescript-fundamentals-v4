@@ -2,20 +2,19 @@
 
 class Car {
     static nextSerialNumber : number
-    static generateSerialNumber() {
-        return this.nextSerialNumber++
-    }
-    static {
+    static generateSerialNumber() { return this.nextSerialNumber++ }
+    static () {
         fetch("https://api.example.com/vin_number_data")
             .then(response => response.json())
             .then(data => {
-                this.nextSerialNumber = data.mostRecentInvoiceId + 1
+                Car.nextSerialNumber = data.mostRecentInvoiceId + 1
             })
     }
 
     make: string
     model: string
     year: number
+    serialNumber : number = Car.generateSerialNumber()
     constructor(make: string, model: string, year: number) {
         this.make = make
         this.model = model
