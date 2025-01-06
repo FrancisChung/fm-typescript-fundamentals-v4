@@ -1,13 +1,13 @@
 // Class fields and methods
 
 class Car {
-    private static nextSerialNumber : number
-    private static generateSerialNumber() { return this.nextSerialNumber++ }
+    static #nextSerialNumber : number
+    static generateSerialNumber() { return this.#nextSerialNumber++ }
     static () {
         fetch("https://api.example.com/vin_number_data")
             .then(response => response.json())
             .then(data => {
-                Car.nextSerialNumber = data.mostRecentInvoiceId + 1
+                Car.#nextSerialNumber = data.mostRecentInvoiceId + 1
             })
     }
 
@@ -15,9 +15,9 @@ class Car {
     model: string
     year: number
     //serialNumber : number = Car.generateSerialNumber()
-    private _serialNumber : number = Car.generateSerialNumber()
+    #serialNumber : number = Car.generateSerialNumber()
     protected get serialNumber (): number {
-        return this._serialNumber
+        return this.#serialNumber
     }
 
     constructor(make: string, model: string, year: number) {
@@ -28,6 +28,17 @@ class Car {
 
     honk(duration: number) {
         return `h${'o'.repeat(duration)}nk`
+    }
+
+    getLabel() {
+        return `${this.make} ${this.model} ${this.year} - ${this.serialNumber}`
+    }
+
+    equals(other: any) {
+        if (other && typeof other === 'object' && this.#serialNumber in other) {
+            return other.#serialNumber = this.#serialNumber
+        }
+        return false
     }
 }
 
