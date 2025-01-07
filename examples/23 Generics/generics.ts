@@ -43,17 +43,28 @@ interface PhoneInfo {
     num: string
 }
 
-function listToDict(
-    list: PhoneInfo[],                  //take the list as an argument
-    idGen: (arg: PhoneInfo) => string,  //a callback to get the IDs
-): {[k: string] : PhoneInfo} {
-    const dict : { [k: string] : PhoneInfo } = {}
-    list.forEach((item) => {
-        const dictKey = idGen(item)
-        dict[dictKey] = item
+// function listToDict(
+//     list: PhoneInfo[],                  //take the list as an argument
+//     idGen: (arg: PhoneInfo) => string,  //a callback to get the IDs
+// ): {[k: string] : PhoneInfo} {
+//     const dict : { [k: string] : PhoneInfo } = {}
+//     list.forEach((item) => {
+//         const dictKey = idGen(item)
+//         dict[dictKey] = item
+//     })
+//     return dict
+// }
+
+function listToDict<T>(
+    list: T[],
+    idGen: (arg: T) => string
+): {[k: string] : T } {
+    const dict: { [k: string] : any} = {}
+    list.forEach((element) => {
+        const dictKey = idGen(element)
+        dict[dictKey] = element
     })
     return dict
 }
 
-//let testBlank = listToDict(phoneList)
-//console.log(testBlank)
+const  result = listToDict(phoneList, (item) => item.customerId)
