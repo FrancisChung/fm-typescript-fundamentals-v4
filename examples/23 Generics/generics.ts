@@ -68,3 +68,10 @@ function listToDict<T>(
 }
 
 const  result = listToDict(phoneList, (item) => item.customerId)
+
+function wrapInArray<T>(arg: T) : T[] {
+    return [arg]
+}
+
+wrapInArray(3)
+wrapInArray(new Date())
