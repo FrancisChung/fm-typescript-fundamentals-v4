@@ -75,3 +75,18 @@ function wrapInArray<T>(arg: T) : T[] {
 
 wrapInArray(3)
 wrapInArray(new Date())
+
+// Best Practices
+// T Needs to be used to describe relationships between Types
+
+function returnAs<T>(arg: any) : T {
+    return arg      // bad example, using generics for casting. Where is T being used here?
+}
+
+const foo = returnAs<string>(41)
+
+function makeTuple<T, U>(arg: T, arg2: U) : [T,U] {
+    return [arg, arg2]
+}
+
+export default {}
