@@ -35,6 +35,26 @@ function isCarLike(valueToTest: any) : valueToTest is CarLike {
   )
 }
 
-if isCarLike(maybeCar) {
-    maybeCar
+// if isCarLike(maybeCar) {
+//     maybeCar
+// }
+
+function assertsIsCarLike(valueToTest: any) : asserts valueToTest is CarLike {
+    if  (!(
+        valueToTest &&
+        typeof valueToTest == "object" &&
+        "make" in valueToTest &&
+        typeof valueToTest["make"] == "string" &&
+        "model" in valueToTest &&
+        typeof valueToTest["model"] == "string" &&
+        "year" in valueToTest &&
+        typeof valueToTest["year"] == "number"
+        )
+    )
+        throw new Error(
+            `Value does not appear to be a CarLike${valueToTest}`
+        )
 }
+
+assertsIsCarLike(maybeCar)
+maybeCar
