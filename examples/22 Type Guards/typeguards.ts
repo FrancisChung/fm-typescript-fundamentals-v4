@@ -80,3 +80,20 @@ let val: any
 if (Car.isCar(val)) {
     val
 }
+
+class Fish {
+    swim() : void {}
+}
+
+class Bird {
+    fly() : void {}
+}
+
+switch (true) {
+    case val instanceof Bird:
+        val.fly()
+        break
+    case val instanceof Fish:
+        val.swim()
+        break
+}
