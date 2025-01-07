@@ -58,3 +58,25 @@ function assertsIsCarLike(valueToTest: any) : asserts valueToTest is CarLike {
 
 assertsIsCarLike(maybeCar)
 maybeCar
+
+class Car {
+    static #nextSerialNumber : number
+    static #generateSerialNumber() { return this.#nextSerialNumber++ }
+
+    #serialNumber : number = Car.#generateSerialNumber()
+
+    static isCar(other: any): other is Car {
+        if (other && // is it truthy
+            typeof other == "object" &&
+            #serialNumber in other) {
+            other
+            return true
+        }
+
+    }
+}
+
+let val: any
+if (Car.isCar(val)) {
+    val
+}
